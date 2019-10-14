@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Página para chamada POST de teste</title>
+  <style>
+    .dvCampo {
+      width: 120px;
+    }
+
+    .fdTexto {
+      margin-left: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <fieldset>
+      <div class="dvCampo">
+        <label for="name">Nome do Planeta:
+        </label>
+        <input type="text" name="name" id="name" value="Saturno" class="fdTexto">
+      </div>
+      <div class="dvCampo">
+        <label for="climate">Clima
+        </label>
+        <input type="text" name="climate" id="climate" value="Arid" class="fdTexto">
+      </div>
+      <div class="dvCampo">
+        <label for="terrain">Terreno
+          <input type="text" name="terrain" id="terrain" value="Dessert" class="fdTexto">
+        </label>
+      </div>
+    </fieldset>
+    <button class="btChamada">Chamada POST</button><br><br>
+    <div id="retorno"></div>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script>
+    const btChamada = document.querySelector('.btChamada');
+    const url = 'http://localhost:3001/planet/';
+    const fdName = document.querySelector('#name');
+    const fdClimate = document.querySelector('#climate');
+    const fdTerrain = document.querySelector('#terrain');
+    const dvRetorno = document.querySelector('#retorno');
+    console.log(dvRetorno);
+    console.log(dvRetorno.innerHTML);
+    
+
+    btChamada.addEventListener('click', function (e) {
+      const data = JSON.stringify({ "name": fdName.value, "climate": fdClimate.value, "terrain": fdTerrain.value });
+      $.ajax({
+        type: "POST",
+        url: url,
+        data: data,
+        success: function (data) {
+          console.log('Success', data);
+        },
+        error: function (err) {
+          console.log('Error', err);
+          dvRetorno.innerHTML = err.responseText;
+        },
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8"
+      });
+
+    });
+  </script>
+</body>
+
+</html>
