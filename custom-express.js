@@ -1,7 +1,6 @@
 const express = require('express');
 const load = require('express-load');
 const bodyParser = require('body-parser');
-const expressValidator = require('express-validator');
 const cors = require('cors');
 
 module.exports = function () {

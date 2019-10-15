@@ -37,7 +37,9 @@
         </label>
       </div>
     </fieldset>
-    <button class="btChamada">Chamada POST</button><br><br>
+    <button class="btChamada">Chamada POST</button>
+    <br>
+    <br>
     <div id="retorno"></div>
   </main>
 
@@ -49,9 +51,8 @@
     const fdClimate = document.querySelector('#climate');
     const fdTerrain = document.querySelector('#terrain');
     const dvRetorno = document.querySelector('#retorno');
-    console.log(dvRetorno);
-    console.log(dvRetorno.innerHTML);
-    
+    // console.log(dvRetorno);
+    // console.log(dvRetorno.innerHTML);
 
     btChamada.addEventListener('click', function (e) {
       const data = JSON.stringify({ "name": fdName.value, "climate": fdClimate.value, "terrain": fdTerrain.value });
@@ -60,10 +61,11 @@
         url: url,
         data: data,
         success: function (data) {
-          console.log('Success', data);
+          //console.log('Success', data);
+          dvRetorno.innerHTML = JSON.stringify(data);
         },
         error: function (err) {
-          console.log('Error', err);
+          //console.log('Error', err);
           dvRetorno.innerHTML = err.responseText;
         },
         dataType: 'json',
