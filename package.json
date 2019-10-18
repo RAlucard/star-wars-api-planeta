@@ -1,5 +1,5 @@
 {
-  "name": "star-wats-api-planeta",
+  "name": "star-wars-api-planeta",
   "version": "1.0.0",
   "description": "API criada para gravar planetas do sistema solar do universo Star Wars",
   "main": "server.js",
