@@ -48,7 +48,7 @@ Apaga o planeta por seu id
 __POST /planet__
 Parâmetros esperados no cadastro: name, climate e terrain.
 
-* No cadastro do planeta, o serviço acessa o swapi para verificar se este planeta existe no universo Star Wars, caso existe o serviço guarda a informação de quantos filmes este planeta apareceu.
+* No cadastro do planeta, o serviço acessa o swapi para verificar se este planeta existe no universo Star Wars, caso exista, o serviço guarda a informação de quantos filmes este planeta apareceu.
 
 
 ## Executando os testes
